@@ -1,13 +1,240 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Roboto",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(208, 235, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(208, 235, 255, 1) 0%,
+    rgba(231, 245, 255, 1) 100%
+  );
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  max-width: 90%;
+  background-color: #f4fce3;
+  margin: 4rem auto;
+  padding-bottom: 4rem;
+  height: 95vh;
+  -webkit-box-shadow: 23px 14px 84px -30px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 23px 14px 84px -30px rgba(0, 0, 0, 0.75);
+  box-shadow: 23px 14px 84px -30px rgba(0, 0, 0, 0.75);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  background-color: #cbdfe7;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("../public/images/headerbg.jpg");
+  background-position: 100%;
+}
+
+.header h1 {
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 800;
+  font-style: italic;
+}
+
+/* Form */
+.form-cont {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.form select,
+.action select {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.form input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #aaa;
+  transition: all 0.2s;
+  border-radius: 0.5rem;
+}
+
+.form select:hover,
+.action select:hover {
+  border: 1px solid #cbdfe7;
+}
+
+.form select:active,
+.form select:focus,
+.action select:focus,
+.action select:active {
+  outline: none;
+}
+
+.form input:hover,
+.form input:active,
+.form input:focus {
+  border: 1px solid #cbdfe7;
+  color: #222;
+  outline: 1px solid #cbdfe7;
+}
+
+.form button,
+.action button {
+  border: 1px solid transparent;
+  background-color: #112f3b;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.form button:hover,
+.action button:hover {
+  border: 1px solid #cbdfe7;
+}
+
+.lists-box {
+  width: 90%;
+  margin: 0 auto;
+  height: 50%;
+  /* background-color: #aaa; */
+}
+
+.lists {
+  height: 100%;
+  list-style: none;
+  padding: 1rem 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  justify-items: center;
+
+  overflow-y: scroll;
+}
+
+.lists::-webkit-scrollbar {
+  width: 1rem;
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 1rem;
+}
+
+.lists::-webkit-scrollbar-thumb {
+  background: #112f3b;
+  border-radius: 1rem;
+}
+
+.list {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: fit-content;
+  height: 13rem;
+  padding: 0.5rem 1rem 2rem 1rem;
+  border-top: 0.3rem solid transparent;
+  border-radius: 0.5rem;
+}
+
+.list.done {
+  background-color: #112f3b;
+  color: #fff;
+  border-top: 0.3rem solid #2b8a3e;
+}
+
+.list-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-header {
+  font-size: 1.4rem;
+  background-color: #112f3b;
+  color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-header.done {
+  background-color: #fff;
+  color: #112f3b;
+}
+
+.check {
+  cursor: pointer;
+  accent-color: #112f3b;
+}
+
+.list-close {
+  font-size: 2.6rem;
+  cursor: pointer;
+  margin-top: -0.5rem;
+  transition: all 0.3s;
+}
+
+.list-close:hover {
+  color: #cbdfe7;
+}
+
+.list-description {
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.action p {
+  font-size: 1.4rem;
+}
+
+/* Footer */
+
+.stats {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 4rem;
+  padding: 3rem 0;
 }
